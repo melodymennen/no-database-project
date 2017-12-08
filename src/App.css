@@ -43,3 +43,6 @@ button, select, input {
   font-size: 14px;
 }
 
+.content-wrapper {
+  margin-top: 15px;
+}

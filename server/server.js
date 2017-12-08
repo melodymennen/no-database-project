@@ -8,7 +8,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-app.get('/api/test', controller.test);
+app.get('/api/kanye', controller.test);
 app.post('/api/links', controller.post);
 app.get('/api/links', controller.read)
 

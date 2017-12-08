@@ -2,9 +2,7 @@ import React from 'react';
 
 const Day = (props) => {
     return (
-        <div>{props.date}</div>
-        // <div>{props.link}</div>
-        // <div>{props.complete}</div>
+        <div>{props.entry}</div>
     )
 }
 export default Day;

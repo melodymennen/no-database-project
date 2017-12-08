@@ -9,6 +9,10 @@ module.exports = {
         res.status(200).send('OK')
     },
     read(req, res){
+        const {week, day} = req.body;
+        // if(week === 1){
+        //     res.json(links)
+        // }
         res.status(200).json(links)
     },
 

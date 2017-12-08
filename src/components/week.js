@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Day from './day';
+import Day from './Day';
 
 class Week extends Component {
     constructor(){
@@ -9,7 +9,7 @@ class Week extends Component {
 
     render() {
         return (
-            <Day date='Dec 8, 2017'/>
+            <Day entry='test entry'/>
         )
     }
 }
