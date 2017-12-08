@@ -9,6 +9,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.get('/api/test', controller.test);
+app.post('/api/links', controller.post);
 
 const port = 3000; 
 

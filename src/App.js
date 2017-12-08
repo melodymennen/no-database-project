@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
 import Week from './components/week';
+import NewEntry from './components/NewEntry';
 
 class App extends Component {
   constructor(){
@@ -28,6 +29,7 @@ class App extends Component {
           <h1 className="App-title">Daily Projects</h1>
         </header>
         <div>
+          <NewEntry />
           <Week />
         </div>
       </div>
