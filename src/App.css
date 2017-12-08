@@ -26,3 +26,20 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+input {
+  height: 20px;
+}
+
+.date {
+  width: 80px;
+}
+
+.link {
+  width: 400px;
+}
+
+button, select, input {
+  font-size: 14px;
+}
+

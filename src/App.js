@@ -30,7 +30,6 @@ class App extends Component {
         </header>
         <div>
           <NewEntry />
-          <Week />
         </div>
       </div>
     );
