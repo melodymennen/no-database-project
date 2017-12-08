@@ -20,9 +20,13 @@ class App extends Component {
       console.log(response);
       this.setState({picture: response.data})
     })
+  
   }
 
+  
+
   render() {
+
     return (
       <div className="App">
         <header className="App-header">
@@ -32,8 +36,7 @@ class App extends Component {
         <div className='content-wrapper'>
           <NewEntry />
           <div className='button-wrapper'>
-          <Button week='1'></Button>
-          <Button week='2'></Button>
+            <Week />
           </div>
         </div>
       </div>

@@ -6,13 +6,10 @@ module.exports = {
     },
     post(req, res) {
         links.push(req.body)
-        res.status(200).send('OK')
+        res.status(200).json(links)
     },
     read(req, res){
-        const {week, day} = req.body;
-        // if(week === 1){
-        //     res.json(links)
-        // }
+        console.log('hello')
         res.status(200).json(links)
     },
 
