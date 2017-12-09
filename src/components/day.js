@@ -1,8 +1,17 @@
-import React from 'react';
+import React, {Component} from 'react';
+import axios from 'axios';
 
-const Day = (props) => {
-    return (
-        <div>{props.entry}</div>
-    )
+class Day extends Component {
+
+
+    render() {
+
+      
+        return (
+            <div>
+            </div>
+        )
+    }
 }
+
 export default Day;

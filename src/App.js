@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
 import NewEntry from './components/NewEntry';
-import Week from './components/Week';
+import Day from './components/Day';
 import Button from './components/Button';
 
 class App extends Component {
@@ -29,12 +29,25 @@ class App extends Component {
 
   }  
 
-  
+  updateStatus(id, status){
+    let newStatus = ''
+    if (status === 'In Progress'){
+      newStatus = 'Complete'
+    }
+    else if (status === 'Complete'){
+      newStatus = 'In Progress' 
+    }
+    axios.put(`http/localhost:3000/api/links/${id}`, {status: newStatus}).then(response => console.log(response.data))
+  }
 
   render() {
     let displayLinks = this.state.links.map((element, index )=> { 
       console.log(element.link)
-      return(<li key={index}>{`Week ${element.week} Day ${element.day} - ${element.link} - ${element.status}`}</li>)})
+      return(<div>
+        <li >{`Week ${element.week} Day ${element.day} - ${element.link} - ${element.status}`}</li>
+        <button onClick={()=>{
+            this.updateStatus(element.id, element.status)}}>Update Status</button>
+      </div>)})
 
     return (
       <div className="App">

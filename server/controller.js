@@ -1,5 +1,5 @@
 const links = []
-let id = 1
+let id = 0
 
 module.exports = {
     test(req, res) {
