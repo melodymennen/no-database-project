@@ -11,6 +11,7 @@ app.use(cors());
 app.get('/api/kanye', controller.test);
 app.post('/api/links', controller.post);
 app.get('/api/links', controller.read)
+app.put('/api/links/:id', controller.update);
 
 const port = 3000; 
 

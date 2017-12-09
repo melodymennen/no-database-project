@@ -46,3 +46,7 @@ button, select, input {
 .content-wrapper {
   margin-top: 15px;
 }
+
+li {
+  list-style-type: none;
+}

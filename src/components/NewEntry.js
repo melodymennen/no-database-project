@@ -5,6 +5,7 @@ class NewEntry extends Component {
     constructor(){
         super()
         this.state ={
+            id: '',
             week: '',
             day: '',
             link: '',
@@ -38,13 +39,14 @@ class NewEntry extends Component {
 
     handleSubmit(){
         const body = {
+            id: this.state.id,
             week: this.state.week,
             day: this.state.day,
             link: this.state.link,
             status: this.state.status
         }
         axios.post('http://localhost:3000/api/links', body).then(response => {
-            this.setState({week: '', day: '', link: '', status: 'In Progress'})
+            this.setState({id: '', week: '', day: '', link: '', status: 'In Progress'})
             this.props.getShit()
         })
     }
@@ -59,7 +61,7 @@ class NewEntry extends Component {
                 <input className='link' value={this.state.link} placeholder={'Project Link'} onChange={event => this.handleLinkChange(event.target.value)} />
                 <select value={this.state.status} onChange={event => this.handleStatusChange(event.target.value)}>
                     <option value="inProgress">In Progress</option>
-                    <option value="complete">Complete</option>
+                    <option value="Complete">Complete</option>
                 </select>
                 <button onClick={()=> this.handleSubmit()}>Submit</button>
             </div>
