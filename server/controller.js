@@ -9,7 +9,6 @@ module.exports = {
         res.status(200).json(links)
     },
     read(req, res){
-        console.log('hello')
         res.status(200).json(links)
     },
 

@@ -45,6 +45,7 @@ class NewEntry extends Component {
         }
         axios.post('http://localhost:3000/api/links', body).then(response => {
             this.setState({week: '', day: '', link: '', status: 'In Progress'})
+            this.props.getShit()
         })
     }
     

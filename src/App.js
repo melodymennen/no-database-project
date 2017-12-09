@@ -11,8 +11,10 @@ class App extends Component {
     super()
 
     this.state = {
-      picture: ''
+      picture: '',
+      links: []
     }
+    this.getShit = this.getShit.bind(this)
   }
 
   componentDidMount(){
@@ -20,12 +22,19 @@ class App extends Component {
       console.log(response);
       this.setState({picture: response.data})
     })
-  
   }
+  
+  getShit(){
+    axios.get('http://localhost:3000/api/links').then(response => this.setState({links: response.data}))
+
+  }  
 
   
 
   render() {
+    let displayLinks = this.state.links.map((element, index )=> { 
+      console.log(element.link)
+      return(<li key={index}>{`Week ${element.week} Day ${element.day} - ${element.link} - ${element.status}`}</li>)})
 
     return (
       <div className="App">
@@ -34,9 +43,9 @@ class App extends Component {
           <h1 className="App-title">Daily Projects</h1>
         </header>
         <div className='content-wrapper'>
-          <NewEntry />
+          <NewEntry getShit={this.getShit}/>
           <div className='button-wrapper'>
-            <Week />
+           Links: {displayLinks}
           </div>
         </div>
       </div>
