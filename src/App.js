@@ -48,15 +48,13 @@ class App extends Component {
     let displayLinks = this.state.links.map((element, index )=> { 
       console.log(element.link)
       return(
-        <div >   
-          <div className="link-wrapper">
-            <li >{`Week ${element.week} Day ${element.day} - ${element.link} - ${element.status}`}</li>
-          </div>
-          <div className="button-wrapper">
+        <div>   
+          <li>
+            {`Week ${element.week} Day ${element.day} - ${element.link} - ${element.status}`}  
             <Button onClick={() => {
               this.updateStatus(element.id, element.status)}}>Update Status</Button>
             <Button onClick= {() => this.delete(element.id)}>Delete</Button>
-          </div>
+          </li>
         </div>)})
 
     return (

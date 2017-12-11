@@ -39,18 +39,21 @@ input {
   width: 400px;
 }
 
-button, select, input {
+select, input {
   font-size: 14px;
 }
 
-.content-wrapper {
+Button {
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.content-wrapper, .button-wrapper{
   margin-top: 15px;
 }
 
 li {
   list-style-type: none;
+  line-height: 30px;
 }
 
-Button {
-  
-}

@@ -2,10 +2,10 @@ const links = []
 let id = 0
 
 module.exports = {
-    test(req, res) {
+    kanye(req, res) {
         res.status(200).send('http://i63.tinypic.com/2j9y8p.png')
     },
-    post(req, res) {
+    create(req, res) {
         const {week, day, link, status} = req.body;
         links.push({
             id: id,
@@ -39,6 +39,4 @@ module.exports = {
         })
         res.status(200).json(links)
     }
-
-
 }
