@@ -29,6 +29,15 @@ module.exports = {
             }
         }
         res.status(200).json(links)
+    },
+    delete(req,res){
+        const {id} = req.params;
+        links.forEach((element, index, array)=> {
+            if (element.id === +id){
+                array.splice(index,1)
+            }
+        })
+        res.status(200).json(links)
     }
 
 

@@ -4,7 +4,7 @@ import './App.css';
 import axios from 'axios';
 import NewEntry from './components/NewEntry';
 import Day from './components/Day';
-import Button from './components/Button';
+
 
 class App extends Component {
   constructor(){
@@ -37,17 +37,27 @@ class App extends Component {
     else if (status === 'Complete'){
       newStatus = 'In Progress' 
     }
-    axios.put(`http/localhost:3000/api/links/${id}`, {status: newStatus}).then(response => console.log(response.data))
+    axios.put(`http://localhost:3000/api/links/${id}`, {status: newStatus}).then(response => this.setState({links: response.data}))
+  }
+
+  delete(id){
+    axios.delete(`http://localhost:3000/api/links/${id}`).then(response => this.setState({links:response.data}))
   }
 
   render() {
     let displayLinks = this.state.links.map((element, index )=> { 
       console.log(element.link)
-      return(<div>
-        <li >{`Week ${element.week} Day ${element.day} - ${element.link} - ${element.status}`}</li>
-        <button onClick={()=>{
-            this.updateStatus(element.id, element.status)}}>Update Status</button>
-      </div>)})
+      return(
+        <div >   
+          <div className="link-wrapper">
+            <li >{`Week ${element.week} Day ${element.day} - ${element.link} - ${element.status}`}</li>
+          </div>
+          <div className="button-wrapper">
+            <button onClick={() => {
+              this.updateStatus(element.id, element.status)}}>Update Status</button>
+            <button onClick= {() => this.delete(element.id)}>Delete</button>
+          </div>
+        </div>)})
 
     return (
       <div className="App">

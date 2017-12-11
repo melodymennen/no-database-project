@@ -12,6 +12,7 @@ app.get('/api/kanye', controller.test);
 app.post('/api/links', controller.post);
 app.get('/api/links', controller.read)
 app.put('/api/links/:id', controller.update);
+app.delete('/api/links/:id', controller.delete);
 
 const port = 3000; 
 
