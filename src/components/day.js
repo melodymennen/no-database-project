@@ -9,6 +9,10 @@ class Day extends Component {
       
         return (
             <div>
+        {/* // linkSearch() {
+        //     let searchLetters = this.refs.searchLetters.value;
+        //     axios.get(`http://localhost:3000/api/links?link=${searchLetters}`).then(response => this.setState({links: response.data}))
+        //   } */}
             </div>
         )
     }

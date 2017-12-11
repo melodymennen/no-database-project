@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import Button from './Button'
 
 class NewEntry extends Component {
     constructor(){
@@ -63,7 +64,7 @@ class NewEntry extends Component {
                     <option value="inProgress">In Progress</option>
                     <option value="Complete">Complete</option>
                 </select>
-                <button onClick={()=> this.handleSubmit()}>Submit</button>
+                <Button onClick={()=> this.handleSubmit()}>Submit</Button>
             </div>
         )
     }

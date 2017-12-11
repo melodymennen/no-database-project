@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
 import NewEntry from './components/NewEntry';
-import Day from './components/Day';
+import Button from './components/Button';
 
 
 class App extends Component {
@@ -53,9 +53,9 @@ class App extends Component {
             <li >{`Week ${element.week} Day ${element.day} - ${element.link} - ${element.status}`}</li>
           </div>
           <div className="button-wrapper">
-            <button onClick={() => {
-              this.updateStatus(element.id, element.status)}}>Update Status</button>
-            <button onClick= {() => this.delete(element.id)}>Delete</button>
+            <Button onClick={() => {
+              this.updateStatus(element.id, element.status)}}>Update Status</Button>
+            <Button onClick= {() => this.delete(element.id)}>Delete</Button>
           </div>
         </div>)})
 
