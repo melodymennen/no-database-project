@@ -4,6 +4,7 @@ import './App.css';
 import axios from 'axios';
 import NewEntry from './components/NewEntry';
 import Button from './components/Button';
+import Search from './components/Search'
 
 
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
       links: []
     }
     this.getShit = this.getShit.bind(this)
+    this.submitSearch = this.submitSearch.bind(this)
   }
 
   componentDidMount(){
@@ -28,6 +30,14 @@ class App extends Component {
     axios.get('http://localhost:3000/api/links').then(response => this.setState({links: response.data}))
 
   }  
+
+  submitSearch(searchLetters){
+    console.log('hello')
+    axios.get(`http://localhost:3000/api/search?link=${searchLetters}`).then(response => {
+    console.log(response.data)
+    this.setState({links: response.data})})
+
+  }
 
   updateStatus(id, status){
     let newStatus = ''
@@ -62,6 +72,9 @@ class App extends Component {
         <header className="App-header">
           <img src={this.state.picture} className="App-logo" alt="logo" />
           <h1 className="App-title">Daily Projects</h1>
+          <div>
+            <Search submit= {this.submitSearch}/>
+          </div>
         </header>
         <div className='content-wrapper'>
           <NewEntry getShit={this.getShit}/>

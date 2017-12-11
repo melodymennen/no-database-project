@@ -38,5 +38,12 @@ module.exports = {
             }
         })
         res.status(200).json(links)
+    }, 
+    search(req,res){
+        const {link} = req.query;
+        const search = links.filter(element => {
+            return element.link.includes(link)
+        })
+        res.status(200).json(search)
     }
 }
