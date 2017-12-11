@@ -14,7 +14,7 @@ class App extends Component {
     this.state = {
       picture: '',
       links: [],
-      gif: 'https://media.giphy.com/media/9zXWAIcr6jycE/giphy.gif'
+      gif: ''
     }
     this.getShit = this.getShit.bind(this)
     this.submitSearch = this.submitSearch.bind(this)
@@ -23,22 +23,17 @@ class App extends Component {
 
   componentDidMount(){
     axios.get('http://localhost:3000/api/kanye').then(response => {
-      console.log(response);
       this.setState({picture: response.data})
     })
   }
   
   getShit(){
     axios.get('http://localhost:3000/api/links').then(response => this.setState({links: response.data}))
-
   }  
 
   submitSearch(searchLetters){
-    console.log('hello')
     axios.get(`http://localhost:3000/api/search?link=${searchLetters}`).then(response => {
-    console.log(response.data)
     this.setState({links: response.data})})
-
   }
 
   updateStatus(id, status){
@@ -58,12 +53,10 @@ class App extends Component {
 
   bored(){
     axios.get('https://api.giphy.com/v1/gifs/random?api_key=bDEZlekRn1iNKzkyjwKOuUnNOMrSd4Wk&tag=rick-and-morty&rating=G').then(response => {
-      this.setState({gif: response.data.data.url})
+      this.setState({gif: response.data.data.image_url})
       console.log(this.state.gif)
-
   })
 }
-  
 
   render() {
     let displayLinks = this.state.links.map((element, index )=> { 

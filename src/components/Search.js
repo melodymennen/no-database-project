@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import Button from './Button';
 
 class Search extends Component {
 
@@ -19,13 +20,12 @@ constructor(){
     }
     
    
-
     render() {
 
         return (
             <div>
                 <input placeholder= {'Search'} value= {this.state.searchLetters} onChange={event => this.linkSearch(event.target.value)}/>
-                <button onClick={() => this.props.submit(this.state.searchLetters)}>Submit</button>
+                <Button onClick={() => this.props.submit(this.state.searchLetters)}>Submit</Button>
             </div>
         )
     }
