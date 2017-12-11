@@ -13,10 +13,12 @@ class App extends Component {
 
     this.state = {
       picture: '',
-      links: []
+      links: [],
+      gif: 'https://media.giphy.com/media/9zXWAIcr6jycE/giphy.gif'
     }
     this.getShit = this.getShit.bind(this)
     this.submitSearch = this.submitSearch.bind(this)
+    this.bored = this.bored.bind(this)
   }
 
   componentDidMount(){
@@ -54,6 +56,15 @@ class App extends Component {
     axios.delete(`http://localhost:3000/api/links/${id}`).then(response => this.setState({links:response.data}))
   }
 
+  bored(){
+    axios.get('https://api.giphy.com/v1/gifs/random?api_key=bDEZlekRn1iNKzkyjwKOuUnNOMrSd4Wk&tag=rick-and-morty&rating=G').then(response => {
+      this.setState({gif: response.data.data.url})
+      console.log(this.state.gif)
+
+  })
+}
+  
+
   render() {
     let displayLinks = this.state.links.map((element, index )=> { 
       console.log(element.link)
@@ -72,7 +83,7 @@ class App extends Component {
         <header className="App-header">
           <img src={this.state.picture} className="App-logo" alt="logo" />
           <h1 className="App-title">Daily Projects</h1>
-          <div>
+          <div className="search-bar">
             <Search submit= {this.submitSearch}/>
           </div>
         </header>
@@ -80,6 +91,10 @@ class App extends Component {
           <NewEntry getShit={this.getShit}/>
           <div className='button-wrapper'>
            Links: {displayLinks}
+          </div>
+          <div className="gif">
+            <button onClick={()=> this.bored()}>Bored?</button><br/>
+            <img src={this.state.gif} />
           </div>
         </div>
       </div>

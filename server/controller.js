@@ -1,5 +1,6 @@
 const links = []
 let id = 0
+const axios = require('axios')
 
 module.exports = {
     kanye(req, res) {

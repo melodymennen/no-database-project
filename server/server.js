@@ -13,7 +13,7 @@ app.post('/api/links', controller.create);
 app.get('/api/links', controller.read)
 app.put('/api/links/:id', controller.update);
 app.delete('/api/links/:id', controller.delete);
-app.get('/api/search', controller.search)
+app.get('/api/search', controller.search);
 
 const port = 3000; 
 
