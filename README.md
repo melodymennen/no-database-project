@@ -10,4 +10,4 @@ I was tasked with creating a no database project in two days. What I made is an 
 - connect to a third party API (Giphy) to display a random gif
 
 ## Tech:
-I used many technologies when making this project including but not limited to: React | JavaScript(ES6) | NodeJS | ExpressJS | CSS
+I used the following technologies when making this project: React | JavaScript(ES6) | NodeJS | ExpressJS | Axios | CSS
