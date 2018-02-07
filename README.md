@@ -9,7 +9,7 @@ I was tasked with creating a no database project in two days. What I made is an 
 * `cd` into the project directory.
 * Run `npm install`.
 * Start the server with `nodemon`.
-* Start the web dev server with `yarn start`. In your browser, open `http://localhost:3000`.
+* Start the web dev server with `npm start`. In your browser, open `http://localhost:3000`.
 
 ## Current Features:
 - display links to daily projects
