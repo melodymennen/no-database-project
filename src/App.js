@@ -16,7 +16,7 @@ class App extends Component {
       links: [],
       gif: ''
     }
-    this.getShit = this.getShit.bind(this)
+    this.getStuff = this.getStuff.bind(this)
     this.submitSearch = this.submitSearch.bind(this)
     this.bored = this.bored.bind(this)
   }
@@ -27,7 +27,7 @@ class App extends Component {
     })
   }
   
-  getShit(){
+  getStuff(){
     axios.get('http://localhost:3000/api/links').then(response => this.setState({links: response.data}))
   }  
 
@@ -81,7 +81,7 @@ class App extends Component {
           </div>
         </header>
         <div className='content-wrapper'>
-          <NewEntry getShit={this.getShit}/>
+          <NewEntry getStuff={this.getStuff}/>
           <div className='button-wrapper'>
            Links: {displayLinks}
           </div>
